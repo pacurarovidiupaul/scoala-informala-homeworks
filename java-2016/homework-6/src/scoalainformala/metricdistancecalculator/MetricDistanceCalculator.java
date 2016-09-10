@@ -2,7 +2,18 @@ package scoalainformala.metricdistancecalculator;
 
 public class MetricDistanceCalculator {
 
-	private MetricDistanceExpressionParser parser = new MetricDistanceExpressionParser();
+	private MetricDistanceExpressionParser parser;
+	@SuppressWarnings("unused")
+	private MetricDistanceConverter converter;
+
+	public MetricDistanceCalculator() {
+		this(new MetricDistanceExpressionParser(), new MetricDistanceConverter());
+	}
+
+	MetricDistanceCalculator(MetricDistanceExpressionParser parser, MetricDistanceConverter converter) {
+		this.parser = parser;
+		this.converter = converter;
+	}
 
 	public Distance computeDistance(String expression, String resultDistanceFormat) {
 		Distance[] dist = parser.parse(expression);

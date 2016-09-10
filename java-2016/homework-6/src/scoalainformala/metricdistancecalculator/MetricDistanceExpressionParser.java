@@ -6,8 +6,7 @@ public class MetricDistanceExpressionParser {
 	private static final String PLUS = "\\+";
 
 	public Distance[] parse(String expression) {
-		int operandCount = countSubStringOccurrence(expression, PLUS) + countSubStringOccurrence(expression, MINUS)
-				+ 1;
+		int operandCount = countSubStringOccurrence(expression, PLUS) + countSubStringOccurrence(expression, MINUS) + 1;
 		if (expression.startsWith("-")) {
 			operandCount--;
 		}
@@ -24,7 +23,7 @@ public class MetricDistanceExpressionParser {
 				expression = expression.replaceFirst(PLUS, "");
 			}
 
-			int nextOpPos = nextOperand(expression);
+			int nextOpPos = nextOperatorPos(expression);
 			String operator = null;
 			if (nextOpPos == -1) {
 				operator = expression;
@@ -40,7 +39,7 @@ public class MetricDistanceExpressionParser {
 
 	}
 
-	private int nextOperand(String expression) {
+	int nextOperatorPos(String expression) {
 		int plusPos = expression.indexOf("+");
 		int minusPos = expression.indexOf("-");
 		if (plusPos == -1) {
@@ -51,6 +50,13 @@ public class MetricDistanceExpressionParser {
 		}
 		return plusPos < minusPos ? plusPos : minusPos;
 	}
+
+	/*
+	 * private int nextOperand(String expression) { int plusPos =
+	 * expression.indexOf("+"); int minusPos = expression.indexOf("-"); if
+	 * (plusPos == -1) { return minusPos; } if (minusPos == -1) { return
+	 * plusPos; } return plusPos < minusPos ? plusPos : minusPos; }
+	 */
 
 	private Distance convertToDistance(String e, int sign) {
 		if (e.endsWith(Distance.MILIMETERS)) {
@@ -74,7 +80,7 @@ public class MetricDistanceExpressionParser {
 	}
 
 	private Distance convertToDistance(String e, int sign, String distanceFormat) {
-		return new Distance(distanceFormat, sign * Integer.parseInt(e.replace(distanceFormat, "")));
+		return new Distance(distanceFormat, sign * Double.parseDouble(e.replace(distanceFormat, "")));
 
 	}
 

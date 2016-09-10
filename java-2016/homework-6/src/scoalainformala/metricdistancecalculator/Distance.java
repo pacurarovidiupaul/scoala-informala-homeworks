@@ -3,14 +3,13 @@ package scoalainformala.metricdistancecalculator;
 public class Distance {
 
 	public static final String MILIMETERS = "mm";
-	public static final String CENTIMETERS ="cm";
-	public static final String DECAMETERS ="dm";
+	public static final String CENTIMETERS = "cm";
+	public static final String DECAMETERS = "dm";
 	public static final String METERS = "m";
 	public static final String KILO_METERS = "km";
-	public static final String INCH ="in";
+	public static final String INCH = "in";
 	public static final String FOOT = "ft";
 	public static final String MILES = "mi";
-	
 
 	private String formatName;
 	private double value;
