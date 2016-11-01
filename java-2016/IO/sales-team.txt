@@ -1,0 +1,6 @@
+George Washington|Sales Manager|80|0|0|0
+Michael Douglas|Senior Sales Officer|160|0|5|10
+Jennifer Lawrence|Sales Officer|84|10|10|0
+Kurt Douglas|Sales Officer|160|2|5|5
+Keanu Reeves|Sales Officer|90|0|10|15
+Pacurar Ovidiu|Sales Manager|90|0|0|0
